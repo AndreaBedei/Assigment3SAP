@@ -128,32 +128,6 @@ services:
       sleep 40;
       mvn exec:java -Dexec.mainClass=sap.ass2.rides.RidesManagerLauncher"
 
-  # testrunner:
-  #   build:
-  #     context: ./end2end-test
-  #     dockerfile: docker-maven/Dockerfile
-  #   image: testrunner
-  #   container_name: my-test-runner
-  #   depends_on:
-  #     - apigateway
-  #     - registry
-  #     - users
-  #     - ebikes
-  #     - rides
-  #   networks:
-  #     - ebikapp_network
-  #   environment:
-  #     - REGISTRY_URL=http://registry:9000
-  #     - USERS_URL=http://users:9100
-  #     - EBIKES_URL=http://ebikes:9200
-  #     - APIGATEWAY_URL=http://apigateway:10000
-  #     - RIDES_URL=http://rides:9300
-  #     - KAFKA_BROKER_URL=kafka:9092
-  #   command: >
-  #     sh -c "
-  #     sleep 60;
-  #     mvn test"
-
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     container_name: zookeeper
